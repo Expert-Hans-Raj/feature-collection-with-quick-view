@@ -93,10 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Quick View Add to Cart
   addToCartBtn.addEventListener('click', async () => {
-    // If no variant selected, use the first variant ID (already set to selectedVariantId on load)
+    // If no variant selected,
     const variantIdToAdd = selectedVariantId;
     if (!variantIdToAdd) {
-      // No alert here, just fail silently or handle as needed
+      
       return;
     }
 
@@ -123,8 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Collection Page Swatch and Cart ---
   document.querySelectorAll('.product-card').forEach(card => {
     const productId = card.dataset.productId;
-    const defaultVariant = card.dataset.defaultVariant;  // data-default-variant value
-
+    const defaultVariant = card.dataset.defaultVariant;  
     const imgEl = card.querySelector('.product-card__image');
 
     card.querySelectorAll('.color-swatch').forEach(swatch => {
@@ -144,13 +143,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = card.querySelector('.btn-add-to-cart');
     if (btn) {
       btn.addEventListener('click', async () => {
-        // Use selected variant if selected, otherwise use default variant from data-default-variant attribute
         const variantToAdd = card.dataset.selectedVariant || defaultVariant;
 
-        // No alert needed if no variant selected, just use default variant automatically
 
         if (!variantToAdd) {
-          // Just in case no variant found, fail silently or you can alert here if you want
           return;
         }
 
